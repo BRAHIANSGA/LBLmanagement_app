@@ -45,7 +45,7 @@ class _RocketLoadingState extends State<RocketLoading>
   double _calculateOpacity(double animationValue) {
     double angle = animationValue * 2 * math.pi;
     double sinValue = math.sin(angle);
-    
+
     // Ahora invertimos la lógica: si el seno es positivo, el cohete está "detrás"
     if (sinValue > 0) {
       return 0.3 + (0.7 * (1 - sinValue));
@@ -164,12 +164,38 @@ class _RocketLoadingState extends State<RocketLoading>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            ShaderMask(
+              shaderCallback: (bounds) => LinearGradient(
+                colors: [
+                  Colors.blue,
+                  Colors.blue.withOpacity(0.9),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ).createShader(bounds),
+              child: const Text(
+                'LBL',
+                style: TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(194, 59, 79, 228),
+                  letterSpacing: 3,
+                  shadows: [
+                    Shadow(
+                      color: Colors.blue,
+                      blurRadius: 10,
+                    ),
+                  ],
+                ),
+              ),
+            ),
             const Text(
-              "LBLmanagement...",
+              'MANAGEMENT',
               style: TextStyle(
-                color: Colors.blue,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: Color.fromARGB(179, 59, 79, 228),
+                letterSpacing: 8,
                 shadows: [
                   Shadow(
                     color: Colors.blue,
@@ -234,7 +260,8 @@ class _RocketLoadingState extends State<RocketLoading>
                         final opacity = _calculateOpacity(_controller.value);
                         return Stack(
                           children: [
-                            _buildRocketTrail(_controller.value * 2 * math.pi, opacity),
+                            _buildRocketTrail(
+                                _controller.value * 2 * math.pi, opacity),
                             Opacity(
                               opacity: opacity,
                               child: Transform(
