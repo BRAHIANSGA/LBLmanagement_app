@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:lblmanagert/screens/home/home_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -195,7 +197,7 @@ class LoginPage extends StatelessWidget {
                         height: 56,
                         child: ElevatedButton(
                           onPressed: () {
-                            // Implementar lógica de login
+                            Get.off(() =>const HomePage());
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.transparent,

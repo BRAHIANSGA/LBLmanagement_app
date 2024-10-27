@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:lblmanagert/controllers/navigation_controller.dart';
 import 'package:lblmanagert/routes/app_pages.dart';
+import 'package:lblmanagert/screens/login/login_page.dart';
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
@@ -100,6 +101,11 @@ class CustomDrawer extends StatelessWidget {
                     title: 'Cerrar Sesión',
                     onTap: () {
                       Get.back();
+                      Get.off(
+                        transition: Transition.circularReveal,
+                        duration: const Duration(seconds: 3),
+                        () => const LoginPage()
+                        );
                       // Implementar lógica de cierre de sesión
                     },
                   ),

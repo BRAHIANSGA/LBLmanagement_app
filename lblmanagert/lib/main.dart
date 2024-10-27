@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           return const HomePage();
         },
         onUnauthenticated: (context) {
-          return const HomePage();
+          return const LoginPage();
         },
       ),
     );

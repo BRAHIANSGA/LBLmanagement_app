@@ -7,4 +7,5 @@ abstract class Routes {
   static const ALERTS = '/alerts';
   static const MAINTENANCE = '/maintenance';
   static const SETTINGS = '/settings';
+   static const MACHINEDETAILS = '//machine-details';
 }
